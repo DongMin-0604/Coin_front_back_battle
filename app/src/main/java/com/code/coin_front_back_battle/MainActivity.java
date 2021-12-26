@@ -23,8 +23,6 @@ import android.widget.Toast;
 import com.example.coin_front_back_battle.R;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
