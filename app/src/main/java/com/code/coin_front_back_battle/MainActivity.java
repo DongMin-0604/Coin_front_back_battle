@@ -26,6 +26,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
+    //뒤로가기 두번 누른 시간 차 측정을 위한 변수
     private long backKeyPressedTime;
 
     Button front_BT;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     EditText Value_ET;
 
-    LinearLayout Batting_layout, touch_layout, result_layout,Batting_layout_anime,result_layout_anime;
+    LinearLayout Batting_layout, touch_layout, result_layout, Batting_layout_anime, result_layout_anime;
 
     String front_text, back_text, front_or_back;
     String run = "게임중지";
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     Handler mHandler = null;
 
     Toast toast;
-
+    //핸드폰 자판 표시 여부 결정해주는 매니저
     InputMethodManager manager;
+    //애니메이션 지정
     Animation animation_Test;
 
     int delay_key = 1;
@@ -58,8 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //기본 설정을 담은 함수
         init();
+        //버튼 onClick 시 효과만 담은 함수
         setting_BT();
+        //동전 애니메이션을 담은 함수
         coin_Anime();
 
     }
@@ -90,8 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         touch_layout.setOnTouchListener(this);
 
         manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        animation_Test = AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        animation_Test = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
+        //동전 앞 뒤 확률을 랜덤하게 하기 위한 랜덤 함수 호출
         Random random = new Random();
         coin_Key = random.nextInt(3000) + 1;
     }
@@ -138,12 +144,14 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             public void onClick(View v) {
 
                 Button_Style_default();
-
+                //키보드 자판 집어넣기
                 manager.hideSoftInputFromWindow(Value_ET.getWindowToken(), 0);
+
                 if (Batting_text.getText().toString().equals("앞")) {
                     front_text = Value_ET.getText().toString();
                     Value_ET.setText("");
                     Batting_layout.setVisibility(View.GONE);
+
                     Log.d("1", "앞:" + front_text);
 
 
@@ -167,9 +175,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
 
     public void coin_Anime() {
+        //동전 애니메이션 함수
         delay = 100;
         delay_key = 1;
-        //동전 애니메이션
+
+
         mHandler = new Handler();
         mHandler = new Handler() {
             @Override
@@ -215,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void result() {
+        //결과창 출력하는 함수
         mHandler = new Handler();
         run = "게임중지";
         mHandler.postDelayed(new Runnable() {
@@ -244,6 +255,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void img_play(int coin_Key) {
+        //이미지를 coni_key에 따라 UI에서 실제로 변경해주는 함수
         mHandler.removeMessages(0);
         Log.d("1", "img_play");
         switch (coin_Key) {
@@ -260,6 +272,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        //화면 터치 시 이벤트
         int action = event.getAction();
         if (action == event.ACTION_UP) {
 
@@ -282,13 +295,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         return true;
     }
 
-    public void Button_Style_default(){
+    public void Button_Style_default() {
+        //버튼 활성화 함수
         front_BT.setEnabled(true);
         back_BT.setEnabled(true);
         front_BT.setBackgroundResource(R.drawable.button_custom);
         back_BT.setBackgroundResource(R.drawable.button_custom);
     }
-    public void Button_Style_no_click(){
+
+    public void Button_Style_no_click() {
+        //버튼 비활성화 시키는 함수
         front_BT.setEnabled(false);
         back_BT.setEnabled(false);
         front_BT.setBackgroundResource(R.drawable.button_custom_dont_click);
@@ -297,6 +313,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     @Override
     public void onBackPressed() {
+        //뒤로 버튼 두 번 클릭해야 종료되는 로직
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
             backKeyPressedTime = System.currentTimeMillis();
             toast = Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
@@ -316,7 +333,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onDestroy() {
         super.onDestroy();
 
-        if (mHandler != null){
+        if (mHandler != null) {
+            // 핸들러 종료
             mHandler.removeMessages(0);
         }
 

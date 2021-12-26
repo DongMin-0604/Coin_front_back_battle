@@ -20,7 +20,7 @@
             android:layout_height="450px"
             android:layout_gravity="center"
             android:src="@drawable/logo1" />
-
+        <!--일자 가로선 표시-->
         <View
             android:layout_width="match_parent"
             android:layout_height="15px"
@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/coin_front" />
         </LinearLayout>
-
+        <!--일자 가로선 표시-->
         <View
             android:layout_width="match_parent"
             android:layout_height="15px"
