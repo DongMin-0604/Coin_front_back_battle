@@ -18,6 +18,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="450px"
+            android:layout_weight="0.2"
             android:layout_gravity="center"
             android:src="@drawable/logo1" />
         <!--일자 가로선 표시-->
@@ -39,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/one_mobile_pop"
+                android:layout_marginTop="50px"
                 android:gravity="center"
                 android:text="TOUCH!"
                 android:textColor="#CA81AA"
@@ -85,13 +87,13 @@
             <ImageView
                 android:layout_width="270px"
                 android:layout_height="210px"
-                android:layout_weight="1"
+                android:layout_marginEnd="43dp"
                 android:src="@drawable/coin_front" />
 
             <ImageView
                 android:layout_width="270px"
                 android:layout_height="210px"
-                android:layout_weight="1"
+                android:layout_marginStart="43dp"
                 android:src="@drawable/coin_back" />
         </LinearLayout>
 
@@ -99,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6px"
-            android:layout_marginBottom="350px"
+            android:layout_weight="0.2"
             android:gravity="center"
             android:orientation="horizontal">
 
