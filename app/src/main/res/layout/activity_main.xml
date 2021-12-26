@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="#EEF1F1"
-    tools:context=".MainActivity">
+    tools:context="com.code.coin_front_back_battle.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,6 +38,7 @@
                 android:id="@+id/TOUCH_TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/one_mobile_pop"
                 android:gravity="center"
                 android:text="TOUCH!"
                 android:textColor="#CA81AA"
@@ -60,14 +61,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50px"
+            android:layout_marginBottom="10px"
+            android:fontFamily="@font/one_mobile_pop"
             android:gravity="center"
-            android:text="각 결과에 따라 결정될 조건을 입력하세요."
+            android:text="각 결과에 따라 결정될 조건을 입력하고\n동전을 터치하세요"
             android:textColor="@color/black"
             android:textSize="50px" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/eicedigitalbaeum_regular"
             android:gravity="center"
             android:text="ex) 치킨,피자"
             android:textColor="#375DBC" />
@@ -94,6 +98,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6px"
             android:layout_marginBottom="350px"
             android:gravity="center"
             android:orientation="horizontal">
@@ -101,18 +106,20 @@
             <Button
                 android:id="@+id/front_BT"
                 android:layout_width="300px"
-                android:layout_height="wrap_content"
+                android:layout_height="100px"
                 android:layout_marginEnd="43dp"
-                android:backgroundTint="#FFADDB"
+                android:background="@drawable/button_custom"
+                android:fontFamily="@font/elicedigitalbaeum_bold"
                 android:text="앞"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/back_BT"
                 android:layout_width="300px"
-                android:layout_height="wrap_content"
+                android:layout_height="100px"
                 android:layout_marginStart="43dp"
-                android:backgroundTint="#FFADDB"
+                android:background="@drawable/button_custom"
+                android:fontFamily="@font/elicedigitalbaeum_bold"
                 android:text="뒤"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -127,6 +134,7 @@
         android:visibility="gone">
 
         <LinearLayout
+            android:id="@+id/Batting_layout_anime"
             android:layout_width="930px"
             android:layout_height="900px"
             android:layout_gravity="center"
@@ -140,6 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"
+                android:fontFamily="@font/one_mobile_pop"
                 android:gravity="center"
                 android:text="앞"
                 android:textColor="@color/black"
@@ -151,6 +160,7 @@
                 android:layout_height="500px"
                 android:layout_marginTop="20px"
                 android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/eicedigitalbaeum_regular"
                 android:gravity="left"
                 android:hint="조건을 입력하세요"
                 android:inputType="textMultiLine"
@@ -161,9 +171,10 @@
             <Button
                 android:id="@+id/go_main_BT"
                 android:layout_width="600px"
-                android:layout_height="wrap_content"
+                android:layout_height="110px"
                 android:layout_marginTop="30px"
-                android:backgroundTint="#FFADDB"
+                android:background="@drawable/button_custom"
+                android:fontFamily="@font/elicedigitalbaeum_bold"
                 android:text="확인"
                 android:textColor="@color/black" />
 
@@ -180,6 +191,7 @@
         android:visibility="gone">
 
         <LinearLayout
+            android:id="@+id/result_layout_anime"
             android:layout_width="900px"
             android:layout_height="900px"
             android:layout_gravity="center"
@@ -193,30 +205,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"
+                android:fontFamily="@font/one_mobile_pop"
                 android:gravity="center"
                 android:text="결과"
                 android:textColor="@color/black"
                 android:textSize="100px" />
+
+            <ImageView
+                android:id="@+id/result_IV"
+                android:layout_width="210px"
+                android:layout_height="190px"
+                android:layout_marginTop="90px"
+                android:src="@drawable/coin_front" />
+
             <TextView
                 android:id="@+id/result_value_Text"
                 android:layout_width="800px"
-                android:layout_height="500px"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="40px"
+                android:layout_height="200px"
+                android:layout_marginTop="15px"
+                android:fontFamily="@font/one_mobile_pop"
+                android:gravity="center_horizontal"
                 android:text="TEST"
-                />
+                android:textColor="#FFADDB"
+                android:textSize="60px" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_weight="1"
-                />
+                android:layout_weight="0.9" />
+
             <Button
                 android:id="@+id/go_main_BT2"
                 android:layout_width="600px"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:backgroundTint="#FFADDB"
+                android:layout_height="110px"
+                android:layout_marginBottom="20px"
+                android:background="@drawable/button_custom"
+                android:fontFamily="@font/elicedigitalbaeum_bold"
                 android:text="확인"
                 android:textColor="@color/black" />
         </LinearLayout>
